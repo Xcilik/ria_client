@@ -19,9 +19,7 @@ postdb = mongodb.post
 prefixeddb = mongodb.prefix
 varsdb = mongodb.vars
 cekfilterdb = mongodb.cekfilter
-welcomedb = mongodb.welcome
-welcomecekdb = mongodb.welcomecek
-welcometextdb = mongodb.welcometext
+
 
 
 # PLUGINS DB
@@ -275,63 +273,3 @@ async def set_filter(user_id, cek_filter):
         {"_id": user_id}, {"$set": {"cek_filter": cek_filter}}, upsert=True
     )
 
-
-# welcome
-async def get_wlcm(user_id):
-    user = await welcomedb.find_one({"user_id": user_id})
-    if not user:
-        return []
-    return user["wlcm"]
-
-
-async def clear_wlcm(user_id):
-    user = await welcomedb.find_one({"user_id": user_id})
-    if user:
-        await welcomedb.update_one(
-            {"user_id": user_id}, {"$set": {"wlcm": []}}, upsert=True
-        )
-    return True
-
-
-async def add_wlcm(user_id, chat_id):
-    wlcm = await get_wlcm(user_id)
-    wlcm.append(chat_id)
-    await welcomedb.update_one(
-        {"user_id": user_id}, {"$set": {"wlcm": wlcm}}, upsert=True
-    )
-    return True
-
-
-async def remove_wlcm(user_id, chat_id):
-    wlcm = await get_wlcm(user_id)
-    wlcm.remove(chat_id)
-    await welcomedb.update_one(
-        {"user_id": user_id}, {"$set": {"wlcm": wlcm}}, upsert=True
-    )
-    return True
-
-
-async def cek_wlcm(user_id):
-    cek = await welcomecekdb.find_one({"user_id": user_id})
-    if not cek:
-        return "off"
-    return cek["cek_wlcm"]
-
-
-async def set_wlcm(user_id, cek_wlcm):
-    await welcomecekdb.update_one(
-        {"user_id": user_id}, {"$set": {"cek_wlcm": cek_wlcm}}, upsert=True
-    )
-
-
-async def add_wlcm_text(user_id, wlcm_text):
-    await welcometextdb.update_one(
-        {"user_id": user_id}, {"$set": {"wlcm_text": wlcm_text}}, upsert=True
-    )
-
-
-async def get_wlcm_text(user_id):
-    pmmsg = await welcometextdb.find_one({"user_id": user_id})
-    if not pmmsg:
-        return None
-    return pmmsg["wlcm_text"]
