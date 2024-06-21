@@ -42,9 +42,9 @@ def checkplan(func):
     async def wrapper(client, message: Message):
         user_id = client.me.id
         check = await get_plan(user_id)
-        if check == "small":
+        if check == "Riaa":
             return await message.reply(
-                "Buka potensi penuh userbot Anda dengan **Smallpro!**  Tingkatkan sekarang untuk mengakses fitur luar biasa ini.",
+                "Buka potensi penuh userbot Anda dengan **RiaaPro!**  Tingkatkan sekarang untuk mengakses fitur luar biasa ini.",
                 quote=True,
             )
         return await func(client, message)
