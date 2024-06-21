@@ -11,11 +11,6 @@ from cilik.core.database import *
 from config import *
 
 
-async def clear_welcome():
-    for X in ubot._ubot:
-        anu = await get_wlcm(X.me.id)
-        if anu:
-            await clear_wlcm(X.me.id)
 
 
 # expired userbot
