@@ -53,7 +53,7 @@ class Ubot(Client):
     _get_my_id = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, device_model="SmallUbot")
+        super().__init__(**kwargs, device_model="RiaaUserbot")
         self.call_py = PyTgCalls(self)
 
     def on_message(self, filters=None, group=0):
@@ -130,7 +130,7 @@ def anjay(cmd):
 
 
 # client
-ubot = Ubot(name="cilik", api_id=API_ID, api_hash=API_HASH, session_string=STRING)
+ubot = Ubot(name="ria", api_id=API_ID, api_hash=API_HASH, session_string=STRING)
 
 # database
 from cilik.core.database import *
