@@ -31,25 +31,25 @@ MONGO_BOT = os.getenv(
 
 MONGO_UBOT = os.getenv(
     "MONGO_UBOT",
-    "",
+    "mongodb+srv://riaubot:riaubot@cluster0.v8hgjig.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
 )
 
 MONGO_CLIENT = os.getenv(
     "MONGO_CLIENT",
-    "",
+    "mongodb+srv://riaclient:riaclient@cluster0.uilbkxf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
 )
 
 
 # MONGODB EXPIRED
 MONGO_EXPIRED = os.getenv(
     "MONGO_EXPIRED",
-    "",
+    "mongodb+srv://riaexpired:riaexpired@cluster0.tq0r1xw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
 )
 
 # MONGODB REVOKE
 MONGO_UTILS = os.getenv(
     "MONGO_UTILS",
-    "m",
+    "mongodb+srv://riautils:riautils@cluster0.dntnr3q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
 )
 
 # MONGODB TOPCMD
