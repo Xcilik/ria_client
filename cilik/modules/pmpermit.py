@@ -76,9 +76,8 @@ PM_MSG = """
 
 Jangan spam nanti anda terblokir otomatis oleh bot
 
-© __Powered by__ **[Small Ubot](t.me/smallubot)**
+© __Powered by__ **[Ria Userbot](t.me/riaa_userbot)**
 """
-
 
 # Cache variable
 guard_status_cache = {}
