@@ -53,7 +53,7 @@ async def add_plan(user_id, plan):
 async def get_plan(user_id):
     plan = await plandb.find_one({"user_id": user_id})
     if not plan:
-        return "small"
+        return "Riaa"
     return plan["plan"]
 
 
