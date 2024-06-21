@@ -26,7 +26,6 @@ async def auto_restart():
 
     await ingat_expired()
     await expired_userbot()
-    await clear_welcome()
     await dirr()
 
     def go_restart():
