@@ -21,6 +21,10 @@ collection = mongodb.notes
 filtertextdb = mongodb.filtertext
 filterbuttondb = mongodb.filterbutton
 secretbuttondb = mongodb.secretbutton
+welcomedb = mongodb.welcome
+welcomecekdb = mongodb.welcomecek
+welcometextdb = mongodb.welcometext
+
 
 
 # notesbutton
@@ -334,3 +338,30 @@ async def rm_all_secret_button(user_id):
     await secretbuttondb.update_one(
         {"user_id": user_id}, {"$unset": {"secretbutton": ""}}
     )
+
+
+
+async def cek_wlcm(user_id):
+    cek = await welcomecekdb.find_one({"user_id": user_id})
+    if not cek:
+        return "off"
+    return cek["cek_wlcm"]
+
+
+async def set_wlcm(user_id, cek_wlcm):
+    await welcomecekdb.update_one(
+        {"user_id": user_id}, {"$set": {"cek_wlcm": cek_wlcm}}, upsert=True
+    )
+
+
+async def add_wlcm_text(user_id, wlcm_text):
+    await welcometextdb.update_one(
+        {"user_id": user_id}, {"$set": {"wlcm_text": wlcm_text}}, upsert=True
+    )
+
+
+async def get_wlcm_text(user_id):
+    pmmsg = await welcometextdb.find_one({"user_id": user_id})
+    if not pmmsg:
+        return None
+    return pmmsg["wlcm_text"]
