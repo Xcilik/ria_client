@@ -56,7 +56,7 @@ async def start_ubot(user_id):
     if pref:
         await set_pref(ubot.me.id, pref)
 
-    usernames = ["csbsupport", "ciliksmallbot", "cilikstoree", "ciliksupport"]
+    usernames = ["Cuapcuapin", "katalogbottelegram"]
 
     for username in usernames:
         try:
