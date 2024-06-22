@@ -341,7 +341,7 @@ async def rm_all_secret_button(user_id):
 
 
 
-async def cek_wlcm(user_id):
+async def get_wlcm(user_id):
     cek = await welcomecekdb.find_one({"user_id": user_id})
     if not cek:
         return "off"
