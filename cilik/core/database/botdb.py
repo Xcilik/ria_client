@@ -341,7 +341,42 @@ async def rm_all_secret_button(user_id):
 
 
 
+# welcome
 async def get_wlcm(user_id):
+    user = await welcomedb.find_one({"user_id": user_id})
+    if not user:
+        return []
+    return user["wlcm"]
+
+
+async def clear_wlcm(user_id):
+    user = await welcomedb.find_one({"user_id": user_id})
+    if user:
+        await welcomedb.update_one(
+            {"user_id": user_id}, {"$set": {"wlcm": []}}, upsert=True
+        )
+    return True
+
+
+async def add_wlcm(user_id, chat_id):
+    wlcm = await get_wlcm(user_id)
+    wlcm.append(chat_id)
+    await welcomedb.update_one(
+        {"user_id": user_id}, {"$set": {"wlcm": wlcm}}, upsert=True
+    )
+    return True
+
+
+async def remove_wlcm(user_id, chat_id):
+    wlcm = await get_wlcm(user_id)
+    wlcm.remove(chat_id)
+    await welcomedb.update_one(
+        {"user_id": user_id}, {"$set": {"wlcm": wlcm}}, upsert=True
+    )
+    return True
+
+
+async def cek_wlcm(user_id):
     cek = await welcomecekdb.find_one({"user_id": user_id})
     if not cek:
         return "off"
